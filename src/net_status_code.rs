@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-pub enum NetCodes {
+pub enum NetCode {
     // Continue /** RFC 7231, 6.2.1 */
     Continue = 100,
     // SwitchingProtocols /** RFC 7231, 6.2.2 */
@@ -128,71 +128,71 @@ pub enum NetCodes {
     NetworkAuthenticationRequired = 511,
 }
 
-pub fn compute_status_text() -> HashMap<NetCodes, String> {
-    let mut status_text: HashMap<NetCodes, String> = HashMap::new();
+pub fn compute_status_text() -> HashMap<NetCode, String> {
+    let mut status_text: HashMap<NetCode, String> = HashMap::new();
 
-    status_text.insert(NetCodes::Continue, "Continue".to_string());
-    status_text.insert(NetCodes::SwitchingProtocols, "Switching Protocols".to_string());
-    status_text.insert(NetCodes::Processing, "Processing".to_string());
-    status_text.insert(NetCodes::EarlyHints, "Early Hints".to_string());
-    status_text.insert(NetCodes::OK, "OK".to_string());
-    status_text.insert(NetCodes::Created, "Created".to_string());
-    status_text.insert(NetCodes::Accepted, "Accepted".to_string());
-    status_text.insert(NetCodes::NonAuthoritativeInfo, "Non-Authoritative Information".to_string());
-    status_text.insert(NetCodes::NoContent, "No Content".to_string());
-    status_text.insert(NetCodes::ResetContent, "Reset Content".to_string());
-    status_text.insert(NetCodes::PartialContent, "Partial Content".to_string());
-    status_text.insert(NetCodes::MultiStatus, "Multi Status".to_string());
-    status_text.insert(NetCodes::AlreadyReported, "Already Reported".to_string());
-    status_text.insert(NetCodes::IMUsed, "IM Used".to_string());
-    status_text.insert(NetCodes::MultipleChoices, "Multiple Choices".to_string());
-    status_text.insert(NetCodes::MovedPermanently, "Moved Permanently".to_string());
-    status_text.insert(NetCodes::Found, "Found".to_string());
-    status_text.insert(NetCodes::SeeOther, "See Other".to_string());
-    status_text.insert(NetCodes::NotModified, "Not Modified".to_string());
-    status_text.insert(NetCodes::UseProxy, "Use Proxy".to_string());
-    status_text.insert(NetCodes::TemporaryRedirect, "Temporary Redirect".to_string());
-    status_text.insert(NetCodes::PermanentRedirect, "Permanent Redirect".to_string());
-    status_text.insert(NetCodes::BadRequest, "Bad Request".to_string());
-    status_text.insert(NetCodes::Unauthorized, "Unauthorized".to_string());
-    status_text.insert(NetCodes::PaymentRequired, "Payment Required".to_string());
-    status_text.insert(NetCodes::Forbidden, "Forbidden".to_string());
-    status_text.insert(NetCodes::NotFound, "Not Found".to_string());
-    status_text.insert(NetCodes::MethodNotAllowed, "Method Not Allowed".to_string());
-    status_text.insert(NetCodes::NotAcceptable, "Not Acceptable".to_string());
-    status_text.insert(NetCodes::ProxyAuthRequired, "Proxy Auth Required".to_string());
-    status_text.insert(NetCodes::RequestTimeout, "Request Timeout".to_string());
-    status_text.insert(NetCodes::Conflict, "Conflict".to_string());
-    status_text.insert(NetCodes::Gone, "Gone".to_string());
-    status_text.insert(NetCodes::LengthRequired, "Length Required".to_string());
-    status_text.insert(NetCodes::PreconditionFailed, "Precondition Failed".to_string());
-    status_text.insert(NetCodes::RequestEntityTooLarge, "Request Entity Too Large".to_string());
-    status_text.insert(NetCodes::RequestURITooLong, "Request URI Too Long".to_string());
-    status_text.insert(NetCodes::UnsupportedMediaType, "Unsupported Media Type".to_string());
-    status_text.insert(NetCodes::RequestedRangeNotSatisfiable, "Requested Range Not Satisfiable".to_string());
-    status_text.insert(NetCodes::ExpectationFailed, "Expectation Failed".to_string());
-    status_text.insert(NetCodes::Teapot, "Teapot".to_string());
-    status_text.insert(NetCodes::MisdirectedRequest, "Misdirected Request".to_string());
-    status_text.insert(NetCodes::UnprocessableEntity, "Unprocessable Entity".to_string());
-    status_text.insert(NetCodes::Locked, "Locked".to_string());
-    status_text.insert(NetCodes::FailedDependency, "Failed Dependency".to_string());
-    status_text.insert(NetCodes::TooEarly, "Too Early".to_string());
-    status_text.insert(NetCodes::UpgradeRequired, "Upgrade Required".to_string());
-    status_text.insert(NetCodes::PreconditionRequired, "Precondition Required".to_string());
-    status_text.insert(NetCodes::TooManyRequests, "Too Many Requests".to_string());
-    status_text.insert(NetCodes::RequestHeaderFieldsTooLarge, "Request Header Fields Too Large".to_string());
-    status_text.insert(NetCodes::UnavailableForLegalReasons, "Unavailable For Legal Reasons".to_string());
-    status_text.insert(NetCodes::InternalServerError, "Internal ServerError".to_string());
-    status_text.insert(NetCodes::NotImplemented, "Not Implemented".to_string());
-    status_text.insert(NetCodes::BadGateway, "Bad Gateway".to_string());
-    status_text.insert(NetCodes::ServiceUnavailable, "Service Unavailable".to_string());
-    status_text.insert(NetCodes::GatewayTimeout, "Gateway Timeout".to_string());
-    status_text.insert(NetCodes::HTTPVersionNotSupported, "HTTP Version Not Supported".to_string());
-    status_text.insert(NetCodes::VariantAlsoNegotiates, "Variant Also Negotiates".to_string());
-    status_text.insert(NetCodes::InsufficientStorage, "Insufficient Storage".to_string());
-    status_text.insert(NetCodes::LoopDetected, "Loop Detected".to_string());
-    status_text.insert(NetCodes::NotExtended, "Not Extended".to_string());
-    status_text.insert(NetCodes::NetworkAuthenticationRequired, "Network Authentication Required".to_string());
+    status_text.insert(NetCode::Continue, "Continue".to_string());
+    status_text.insert(NetCode::SwitchingProtocols, "Switching Protocols".to_string());
+    status_text.insert(NetCode::Processing, "Processing".to_string());
+    status_text.insert(NetCode::EarlyHints, "Early Hints".to_string());
+    status_text.insert(NetCode::OK, "OK".to_string());
+    status_text.insert(NetCode::Created, "Created".to_string());
+    status_text.insert(NetCode::Accepted, "Accepted".to_string());
+    status_text.insert(NetCode::NonAuthoritativeInfo, "Non-Authoritative Information".to_string());
+    status_text.insert(NetCode::NoContent, "No Content".to_string());
+    status_text.insert(NetCode::ResetContent, "Reset Content".to_string());
+    status_text.insert(NetCode::PartialContent, "Partial Content".to_string());
+    status_text.insert(NetCode::MultiStatus, "Multi Status".to_string());
+    status_text.insert(NetCode::AlreadyReported, "Already Reported".to_string());
+    status_text.insert(NetCode::IMUsed, "IM Used".to_string());
+    status_text.insert(NetCode::MultipleChoices, "Multiple Choices".to_string());
+    status_text.insert(NetCode::MovedPermanently, "Moved Permanently".to_string());
+    status_text.insert(NetCode::Found, "Found".to_string());
+    status_text.insert(NetCode::SeeOther, "See Other".to_string());
+    status_text.insert(NetCode::NotModified, "Not Modified".to_string());
+    status_text.insert(NetCode::UseProxy, "Use Proxy".to_string());
+    status_text.insert(NetCode::TemporaryRedirect, "Temporary Redirect".to_string());
+    status_text.insert(NetCode::PermanentRedirect, "Permanent Redirect".to_string());
+    status_text.insert(NetCode::BadRequest, "Bad Request".to_string());
+    status_text.insert(NetCode::Unauthorized, "Unauthorized".to_string());
+    status_text.insert(NetCode::PaymentRequired, "Payment Required".to_string());
+    status_text.insert(NetCode::Forbidden, "Forbidden".to_string());
+    status_text.insert(NetCode::NotFound, "Not Found".to_string());
+    status_text.insert(NetCode::MethodNotAllowed, "Method Not Allowed".to_string());
+    status_text.insert(NetCode::NotAcceptable, "Not Acceptable".to_string());
+    status_text.insert(NetCode::ProxyAuthRequired, "Proxy Auth Required".to_string());
+    status_text.insert(NetCode::RequestTimeout, "Request Timeout".to_string());
+    status_text.insert(NetCode::Conflict, "Conflict".to_string());
+    status_text.insert(NetCode::Gone, "Gone".to_string());
+    status_text.insert(NetCode::LengthRequired, "Length Required".to_string());
+    status_text.insert(NetCode::PreconditionFailed, "Precondition Failed".to_string());
+    status_text.insert(NetCode::RequestEntityTooLarge, "Request Entity Too Large".to_string());
+    status_text.insert(NetCode::RequestURITooLong, "Request URI Too Long".to_string());
+    status_text.insert(NetCode::UnsupportedMediaType, "Unsupported Media Type".to_string());
+    status_text.insert(NetCode::RequestedRangeNotSatisfiable, "Requested Range Not Satisfiable".to_string());
+    status_text.insert(NetCode::ExpectationFailed, "Expectation Failed".to_string());
+    status_text.insert(NetCode::Teapot, "Teapot".to_string());
+    status_text.insert(NetCode::MisdirectedRequest, "Misdirected Request".to_string());
+    status_text.insert(NetCode::UnprocessableEntity, "Unprocessable Entity".to_string());
+    status_text.insert(NetCode::Locked, "Locked".to_string());
+    status_text.insert(NetCode::FailedDependency, "Failed Dependency".to_string());
+    status_text.insert(NetCode::TooEarly, "Too Early".to_string());
+    status_text.insert(NetCode::UpgradeRequired, "Upgrade Required".to_string());
+    status_text.insert(NetCode::PreconditionRequired, "Precondition Required".to_string());
+    status_text.insert(NetCode::TooManyRequests, "Too Many Requests".to_string());
+    status_text.insert(NetCode::RequestHeaderFieldsTooLarge, "Request Header Fields Too Large".to_string());
+    status_text.insert(NetCode::UnavailableForLegalReasons, "Unavailable For Legal Reasons".to_string());
+    status_text.insert(NetCode::InternalServerError, "Internal ServerError".to_string());
+    status_text.insert(NetCode::NotImplemented, "Not Implemented".to_string());
+    status_text.insert(NetCode::BadGateway, "Bad Gateway".to_string());
+    status_text.insert(NetCode::ServiceUnavailable, "Service Unavailable".to_string());
+    status_text.insert(NetCode::GatewayTimeout, "Gateway Timeout".to_string());
+    status_text.insert(NetCode::HTTPVersionNotSupported, "HTTP Version Not Supported".to_string());
+    status_text.insert(NetCode::VariantAlsoNegotiates, "Variant Also Negotiates".to_string());
+    status_text.insert(NetCode::InsufficientStorage, "Insufficient Storage".to_string());
+    status_text.insert(NetCode::LoopDetected, "Loop Detected".to_string());
+    status_text.insert(NetCode::NotExtended, "Not Extended".to_string());
+    status_text.insert(NetCode::NetworkAuthenticationRequired, "Network Authentication Required".to_string());
 
     status_text
 }

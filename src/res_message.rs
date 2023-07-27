@@ -1,8 +1,8 @@
-use crate::net_status_code::NetCodes;
+use crate::net_status_code::NetCode;
 use crate::res_std_messages::std_res_messages;
 use crate::res_types::*;
 
-pub fn msg_func<T>(code: String, res_code: NetCodes, res_message: String, message: String, value: T) -> ResponseMessage<T> {
+pub fn msg_func<T>(code: String, res_code: NetCode, res_message: String, message: String, value: T) -> ResponseMessage<T> {
     ResponseMessage{
         code,
         res_code,
@@ -15,7 +15,7 @@ pub fn msg_func<T>(code: String, res_code: NetCodes, res_message: String, messag
 pub fn get_res_message<T>(msg_type: String, options: ResponseMessageOptions<T>) -> ResponseMessage<T> {
     let mut value = None;
     let mut code = "unknown".to_string();
-    let mut res_code = NetCodes::UnprocessableEntity;
+    let mut res_code = NetCode::UnprocessableEntity;
     let mut res_message = "Unprocessable Entity".to_string();
     let mut message = "Unknown/Unspecified response message".to_string();
 
