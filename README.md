@@ -1,4 +1,4 @@
-# mcresponse-rs | github.com/abbeymart/mcresponse-rs
+# mcresponse | github.com/abbeymart/mcresponse-rs
 
 - Standard return responses for system functional tasks
 - It exposes the following function: getResMessage
